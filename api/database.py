@@ -11,7 +11,7 @@ engine = create_engine(
 
 SessionLocal = sessionmaker(bind=engine)
 
-class Base(DeclarativeBase):
+class ApiBase(DeclarativeBase):
     ...
 
 def get_db() -> Generator[Session, None, None]:
