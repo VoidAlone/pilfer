@@ -11,8 +11,7 @@ class BoardRole(str, Enum):
 class BoardAccess(ApiBase):
     __tablename__ = "board_access"
 
-    board_id: Mapped[int] = mapped_column(ForeignKey("board.id"), primary_key=True)
-    user_id : Mapped[int] = mapped_column(ForeignKey("user.id"),  primary_key=True)
+    board_id: Mapped[int] = mapped_column(ForeignKey("boards.id"), primary_key=True)
+    user_id : Mapped[int] = mapped_column(ForeignKey("users.id"),  primary_key=True)
     role    : Mapped[BoardRole]
 
-    

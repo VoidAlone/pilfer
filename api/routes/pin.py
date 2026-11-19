@@ -1,10 +1,10 @@
+from database import get_db
 from fastapi import APIRouter, Depends, HTTPException
+from models.pin import Pin
+from schema.pin import PinCreate, PinUpdate, PinResponse
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from database import get_db
-from models.pin import Pin
-from schema.pin import PinCreate, PinUpdate, PinResponse
 
 router = APIRouter(prefix="/pins", tags=["pins"])
 

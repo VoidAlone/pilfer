@@ -8,7 +8,7 @@ from sqlalchemy     import Enum as SqlEnum, DateTime, ForeignKey, Text, String, 
 TIMESTAMP = DateTime(timezone=True)
 
 class Visibility(str, Enum):
-    PUBLIC="public",
+    PUBLIC="public"
     PRIVATE="private"
 
 class Board(ApiBase):

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
+
 class PinCreate(BaseModel):
     name: str
     path: str

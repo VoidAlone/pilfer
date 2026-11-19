@@ -1,8 +1,5 @@
-from enum import auto
-
 from api.database   import ApiBase
-from pin_reaction import PinReaction
-from pin_comment import PinComment
+from enum           import auto
 from sqlalchemy     import Text, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -14,9 +11,6 @@ class User(ApiBase):
     email     : Mapped[str] = mapped_column(String(255))
     name      : Mapped[str] = mapped_column(Text(50))
     pass_hash : Mapped[str] = mapped_column(String(255))
-    comments  : Mapped[list["PinComment"]] = relationship(
-            back_populates="user"
-            )
-    reactions : Mapped[list["PinReaction"]] = relationship(
-            back_populates="user"
-            )
+    comments  : Mapped[list["PinComment"]]  = relationship(back_populates="user")
+    reactions : Mapped[list["PinReaction"]] = relationship(back_populates="user")
+

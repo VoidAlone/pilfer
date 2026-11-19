@@ -1,5 +1,4 @@
 from api.database     import ApiBase
-from api.models.board import Board
 from datetime         import datetime
 from sqlalchemy       import DateTime, ForeignKey, String, Text, func
 from sqlalchemy.orm   import Mapped, mapped_column
@@ -11,7 +10,8 @@ class SavedPin(ApiBase):
     __tablename__ = "savedpins"
 
     id          : Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    pin         : Mapped[int] = mapped_column(ForeignKey="pin.id")
-    board       : Mapped[int] = mapped_column(ForeignKey="board.id")
-    created_by  : Mapped[int] = mapped_column(ForeignKey="user.id")
+    pin_id      : Mapped[int] = mapped_column(ForeignKey("pins.id"))
+    board_id    : Mapped[int] = mapped_column(ForeignKey("boards.id"))
+    saved_by    : Mapped[int] = mapped_column(ForeignKey("users.id"))
     created_on  : Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now())
+
